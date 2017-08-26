@@ -24,7 +24,7 @@ Then(/^I make api call$/) do
 
 end
 
-Then(/^I should receive responce with (\d+) status/) do |code|
+Then(/^I should receive response with (\d+) status/) do |code|
   expect(@resp.code).to eq code.to_i
 end
 
@@ -65,7 +65,6 @@ end
 Then(/^all commits should be pushed after (.*) date$/) do |date|
   resp = JSON.parse(@resp)
   resp.each do |commit|
-    puts commit['commit']['author']['date']
     expect(Date.parse(commit['commit']['author']['date'])).to be > Date.parse(date)
   end
 end
@@ -73,7 +72,6 @@ end
 Then(/^all commits should be pushed before (.*) date$/) do |date|
   resp = JSON.parse(@resp)
   resp.each do |commit|
-    puts commit['commit']['author']['date']
     expect(Date.parse(commit['commit']['author']['date'])).to be < Date.parse(date)
   end
 end

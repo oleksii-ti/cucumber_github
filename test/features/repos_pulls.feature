@@ -4,7 +4,7 @@ Scenario Outline: User can get pull requests for particular repo
   Given github repo for user <username>
   Given endpoint for <path> request for <repo>
   Then I make api call
-  Then I should receive responce with 200 status
+  Then I should receive response with 200 status
   And I should receive array of pull requests
   And each commit should be a Hash
   And each commit should have all required fields:

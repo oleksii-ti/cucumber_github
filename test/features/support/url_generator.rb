@@ -2,7 +2,7 @@ require 'rest-client'
 
 module GitHub
   @@host = 'https://api.github.com'
-  @@access_token = '8e5ec4d43a63603471e7ad8d228028f8f6e3263d'
+  @@access_token = '7c8c8650c02aed356f9301160d46acc384a3ddb0'
   @@username = 'oleksii-ti'
 
   def self.username=(name)

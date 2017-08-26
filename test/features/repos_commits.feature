@@ -1,9 +1,10 @@
 Feature: Repository Commits
 
 Scenario Outline: User can get number of commits
+  Given github repo for user oleksii-ti
   Given endpoint for <path> request for <repo>
   Then I make api call
-  Then I should receive responce with 200 status
+  Then I should receive response with 200 status
   And I should receive array of commits
   And each commit should be a Hash
   And each commit should have all required fields:
@@ -16,9 +17,10 @@ Scenario Outline: User can get number of commits
 
 
 Scenario Outline: User can get commits with author parameter
+  Given github repo for user oleksii-ti
   Given endpoint for <path> request for <repo> with <author> "author"
   Then I make api call
-  Then I should receive responce with 200 status
+  Then I should receive response with 200 status
   And each commit has <author> as author email
   Examples:
     |repo   | author             | path |
@@ -27,10 +29,11 @@ Scenario Outline: User can get commits with author parameter
 
 
 Scenario Outline: User can get commits with few parameters
+  Given github repo for user oleksii-ti
   Given endpoint for <path> request for <repo> with <author> "author"
     And with <date> "since"
   Then I make api call
-  Then I should receive responce with 200 status
+  Then I should receive response with 200 status
   And all commits should be pushed after <date> date
   And each commit has <author> as author email
   Examples:
@@ -39,9 +42,10 @@ Scenario Outline: User can get commits with few parameters
 
 
 Scenario Outline: User can get commits until defined date
+  Given github repo for user oleksii-ti
   Given endpoint for <path> request for <repo> with <date> "until"
   Then I make api call
-  Then I should receive responce with 200 status
+  Then I should receive response with 200 status
   And all commits should be pushed before <date> date
   Examples:
     | repo   | path    | date |
@@ -49,9 +53,10 @@ Scenario Outline: User can get commits until defined date
 
 
 Scenario Outline: User can get commits for defined file
+  Given github repo for user oleksii-ti
   Given endpoint for <path> request for <repo> with <file> "path"
   Then I make api call
-  Then I should receive responce with 200 status
+  Then I should receive response with 200 status
   And all commits should be done for <file> file
   Examples:
     | repo   | path    | file      |
@@ -59,9 +64,10 @@ Scenario Outline: User can get commits for defined file
 
 
 Scenario Outline: User can get particular commit by sha
+  Given github repo for user oleksii-ti
   Given endpoint for <path> request for <repo> with <sha> "sha"
   Then I make api call
-  Then I should receive responce with 200 status
+  Then I should receive response with 200 status
   And first commit sha should be eqaul <sha>
   Examples:
     | repo    | path    | sha                                      |
