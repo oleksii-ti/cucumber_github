@@ -1,11 +1,14 @@
 require 'rest-client'
+require 'redis'
 
 module GitHub
 
   # TODO move to config or set ENVs during deploy
   @@host = 'https://api.github.com'
-  @@access_token = '7c8c8650c02aed356f9301160d46acc384a3ddb0'
   @@username = 'oleksii-ti'
+  redis = Redis.new(host: "redis-14562.c13.us-east-1-3.ec2.cloud.redislabs.com", port: 14562, db: 0)
+  @@access_token =redis.get("access_token")
+
 
   def self.username=(name)
     @@username = name
