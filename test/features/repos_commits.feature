@@ -1,6 +1,6 @@
 Feature: Repository Commits
 
-Scenario Outline: User can get number of commits
+Scenario Outline: User can get commits for repo
   Given github repo for user oleksii-ti
   Given endpoint for <path> request for <repo>
   Then I make api call
@@ -23,9 +23,9 @@ Scenario Outline: User can get commits with author parameter
   Then I should receive response with 200 status
   And each commit has <author> as author email
   Examples:
-    |repo   | author             | path |
+    |repo    | author             | path    |
     |ffaker  | hi@ricostacruz.com | commits |
-    |faker  | ben@bencurtis.com | commits |
+    |faker   | ben@bencurtis.com  | commits |
 
 
 Scenario Outline: User can get commits with few parameters
@@ -37,7 +37,7 @@ Scenario Outline: User can get commits with few parameters
   And all commits should be pushed after <date> date
   And each commit has <author> as author email
   Examples:
-    | repo   | author            | path    | date |
+    | repo   | author            | path    | date       |
     | faker  | ben@bencurtis.com | commits | 2014-12-07 |
 
 
@@ -48,7 +48,7 @@ Scenario Outline: User can get commits until defined date
   Then I should receive response with 200 status
   And all commits should be pushed before <date> date
   Examples:
-    | repo   | path    | date |
+    | repo   | path    | date       |
     | faker  | commits | 2014-12-07 |
 
 

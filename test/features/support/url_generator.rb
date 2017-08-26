@@ -1,6 +1,8 @@
 require 'rest-client'
 
 module GitHub
+
+  # TODO move to config or set ENVs during deploy
   @@host = 'https://api.github.com'
   @@access_token = '7c8c8650c02aed356f9301160d46acc384a3ddb0'
   @@username = 'oleksii-ti'
